@@ -1,6 +1,6 @@
 # Vision-R1
 
-The official repo for "Vision-R1: Incentivizing Reasoning Capability in Multimodal Large Language Models".
+The official repo for "Vision-R1: Incentivizing Reasoning Capability in Multimodal Large Language Models". (<a href="https://github.com/Osilly/Vision-R1/Vision-R1.pdf">[Vision-R1 Paper]</a>)
 
 The datasets and code will be released, stay tuned!
 
