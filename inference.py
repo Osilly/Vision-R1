@@ -10,6 +10,8 @@ def main():
     parser.add_argument("--image_path", type=str, default="", help="Path to the input image.")
     parser.add_argument("--prompt", type=str, default="", help="The input prompt.")
     parser.add_argument("--max_tokens", type=int, default=128, help="Max tokens of model generation")
+    parser.add_argument("--temperature", type=float, default=0.01, help="temperature")
+    parser.add_argument("--top_p", type=float, default=0.1, help="top_p")
     args = parser.parse_args()
 
     if args.enable_flash_attn:
@@ -59,7 +61,12 @@ def main():
     inputs = inputs.to(model.device)
 
     # Inference: Generation of the output
-    generated_ids = model.generate(**inputs, max_new_tokens=args.max_tokens)
+    generated_ids = model.generate(
+        **inputs, 
+        max_new_tokens=args.max_tokens,
+        temperature=args.temperature,
+        top_p=args.top_p,
+    )
     generated_ids_trimmed = [
         out_ids[len(in_ids) :] for in_ids, out_ids in zip(inputs.input_ids, generated_ids)
     ]
