@@ -3,7 +3,7 @@
 The official repo for "Vision-R1: Incentivizing Reasoning Capability in Multimodal Large Language Models". (<a href="https://github.com/Osilly/Vision-R1/blob/main/Vision-R1.pdf">[Vision-R1 Paper]</a>)  
 
 <p align="center">
-       🤗 <a href="">Hugging Face</a>&nbsp&nbsp | &nbsp&nbsp📑 <a href="">Paper</a>&nbsp&nbsp
+       🤗 <a href="">Hugging Face</a>&nbsp&nbsp | &nbsp&nbsp📑 <a href="https://arxiv.org/abs/2503.06749">Paper</a>&nbsp&nbsp
 </p> 
 
 The datasets and code will be released, stay tuned!
