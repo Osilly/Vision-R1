@@ -40,4 +40,89 @@ The datasets and code will be released, stay tuned!
 
 > GRPO with our proposed PTST strategy.  We progressively loosen the context length restrictions, increasing the length of reasoning process. Specifically, we set the reasoning length to 4K, 8K and 16K tokens for each stage, with corresponding group numbers of 16, 8 and 4 respectively. The reward function for GRPO is based on a hard formatting result reward function (HFRRF). The dotted line in the ``Stage 3'' indicates that the final version of Vision-R1 did not undergo the third stage of training.
 
+## Quickstart
 
+install requirements
+
+```bash
+pip install -r requirements.txt
+```
+
+(Optional) install Flash Attention2
+
+```bash
+pip install -U flash-attn --no-build-isolation
+```
+
+
+### Using 🤗  Transformers for Inference
+
+Run the command below.
+
+```bash
+# Inference Script
+python inference.py \\
+--model_path  ""  \\
+--enable_flash_attn True \\
+--image_path "./figs/example1.png" \\
+--prompt "Given a cone with a base radius represented by the variable 'r' (r = 1) and a slant height represented by the variable 's' (s = 3), determine the lateral surface area using variables.\nChoices:\nA: 2π\nB: 3π\nC: 6π\nD: 8π" \\
+--max_tokens 2048  \\
+--temperature 0.01 \\
+--top_p 0.1 \\
+```
+or modify arguments in `scripts/inference.sh` and run
+```bash
+sh scripts/inference.sh
+```
+
+### Using vLLM for Deployment and Inference
+
+We highly recommend applying vLLM for deployment and inference. vLLM version should satisfy `vllm>0.7.2`.
+
+#### Start an OpenAI API Service
+
+Run the command below to start an OpenAI-compatible API service:
+
+```bash
+vllm serve model_path --port 8000 --host 0.0.0.0 --dtype bfloat16 --limit-mm-per-prompt image=5
+```
+or using the bash script below:
+```bash
+sh scripts/vllm_deploy.sh
+```
+
+Then, you can use the chat API by running the command below:
+
+```bash
+python vllm_inference.py \\
+--model_path  ""  \\
+--image_path "./figs/example1.png" \\
+--prompt "Given a cone with a base radius represented by the variable 'r' (r = 1) and a slant height represented by the variable 's' (s = 3), determine the lateral surface area using variables.\nChoices:\nA: 2π\nB: 3π\nC: 6π\nD: 8π" \\
+--max_tokens 2048 \\
+--temperature 0.01 \\
+--top_p 0.1 \\
+--timeout 2000 
+```
+or using bash script
+```bash
+sh scripts/vllm_inference.sh
+```
+
+#### Inference Locally
+
+You can also use vLLM to inference locally:
+
+```bash
+python vllm_inference_local.py \\
+--model_path  ""  \\
+--image_path "./figs/example1.png" \\
+--prompt "Given a cone with a base radius represented by the variable 'r' (r = 1) and a slant height represented by the variable 's' (s = 3), determine the lateral surface area using variables.\nChoices:\nA: 2π\nB: 3π\nC: 6π\nD: 8π" \\
+--max_tokens 2048 \\
+--temperature 0.01 \\
+--top_p 0.1 \\
+```
+
+or using bash script
+```bash
+sh scripts/vllm_inference.sh
+```

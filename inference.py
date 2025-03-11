@@ -63,6 +63,7 @@ def main():
     # Inference: Generation of the output
     generated_ids = model.generate(
         **inputs, 
+        do_sample=True,
         max_new_tokens=args.max_tokens,
         temperature=args.temperature,
         top_p=args.top_p,
