@@ -1,0 +1,1 @@
+vllm serve model_path --port 8000 --host 0.0.0.0 --dtype bfloat16 --limit-mm-per-prompt image=5

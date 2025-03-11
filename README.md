@@ -1,6 +1,10 @@
 # Vision-R1
 
-The official repo for "Vision-R1: Incentivizing Reasoning Capability in Multimodal Large Language Models". (<a href="https://github.com/Osilly/Vision-R1/blob/main/Vision-R1.pdf">[Vision-R1 Paper]</a>)
+The official repo for "Vision-R1: Incentivizing Reasoning Capability in Multimodal Large Language Models". (<a href="https://github.com/Osilly/Vision-R1/blob/main/Vision-R1.pdf">[Vision-R1 Paper]</a>)  
+
+<p align="center">
+       🤗 <a href="">Hugging Face</a>&nbsp&nbsp | &nbsp&nbsp📑 <a href="">Paper</a>&nbsp&nbsp
+</p> 
 
 The datasets and code will be released, stay tuned!
 
@@ -35,3 +39,5 @@ The datasets and code will be released, stay tuned!
 ![](figs/PTST.png)
 
 > GRPO with our proposed PTST strategy.  We progressively loosen the context length restrictions, increasing the length of reasoning process. Specifically, we set the reasoning length to 4K, 8K and 16K tokens for each stage, with corresponding group numbers of 16, 8 and 4 respectively. The reward function for GRPO is based on a hard formatting result reward function (HFRRF). The dotted line in the ``Stage 3'' indicates that the final version of Vision-R1 did not undergo the third stage of training.
+
+
