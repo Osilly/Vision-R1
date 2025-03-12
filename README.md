@@ -1,10 +1,10 @@
 # Vision-R1
 
-The official repo for "Vision-R1: Incentivizing Reasoning Capability in Multimodal Large Language Models". (<a href="https://github.com/Osilly/Vision-R1/blob/main/Vision-R1.pdf">[Vision-R1 Paper]</a>)  
+The official repo for "Vision-R1: Incentivizing Reasoning Capability in Multimodal Large Language Models".
 
 <p align="center">
        🤗 <a href="">Hugging Face</a>&nbsp&nbsp | &nbsp&nbsp📑 <a href="https://arxiv.org/abs/2503.06749">Paper</a>&nbsp&nbsp
-</p> 
+</p>
 
 The datasets and code will be released, stay tuned!
 
@@ -13,7 +13,7 @@ The datasets and code will be released, stay tuned!
 ![](figs/exploration.png)
 
 > **Left panel:** Our Vision-R1 Pipeline. We first use the existing MLLM and DeepSeek-R1 to obtain a high-quantity Multimodal CoT dataset, which is used as the cold-start initialization data for the base MLLM to obtain the post-cold-start Vision-R1-CI, and then we perform the RL training on Vision-R1-CI to obtain the reasoning MLLM, Vision-R1.
-> 
+>
 > **Right panel:** We observe that directly applying RL to MLLMs fails to effectively incentivize  strong reasoning capability (see (C) and (D)).  Vision-R1-Zero, trained via RL without prior initialization, struggles to generalize from limited data (see (E), (F), notably, Vision-R1-Zero was applied in format reward function). Vision-R1-CI faces the Overthinking Optimization Problem, favoring shorter CoT reasoning, where correct reasoning processes mostly focus on the shorter CoT reasoning sequences (see (A)). During subsequent RL training, we observe a lengthening of reasoning steps but a decline in performance (see (D) and (E)), making optimization particularly challenging. For Vision-R1, it initially shortens CoT to refine the right thought process under RL training. PTST enables Vision-R1 to progressively acquire a more complex reasoning process (see (C), (D), and (E)) to improve the performance, such that our Vision-R1 with 7B parameters achieves comparable performance to the strongest MLLMs with 70B+ parameters (see (B)). Note that Vision-R1 used various colored lines to indicate the different stages in PTST.
 
 ## Vision-R1 Reasoning Example
@@ -28,7 +28,7 @@ The datasets and code will be released, stay tuned!
 
 ## Pipeline
 
-### Cold-start Initialization Data Preparation 
+### Cold-start Initialization Data Preparation
 
 ![](figs/data_pipeline.png)
 
@@ -42,7 +42,7 @@ The datasets and code will be released, stay tuned!
 
 ## Quickstart
 
-install requirements
+Install requirements first
 
 ```bash
 pip install -r requirements.txt
@@ -54,26 +54,37 @@ pip install -r requirements.txt
 pip install -U flash-attn --no-build-isolation
 ```
 
-
 ### Using 🤗  Transformers for Inference
 
 Run the command below.
 
 ```bash
-# Inference Script
-python inference.py \\
---model_path  ""  \\
---enable_flash_attn True \\
---image_path "./figs/example1.png" \\
---prompt "Given a cone with a base radius represented by the variable 'r' (r = 1) and a slant height represented by the variable 's' (s = 3), determine the lateral surface area using variables.\nChoices:\nA: 2π\nB: 3π\nC: 6π\nD: 8π" \\
---max_tokens 2048  \\
---temperature 0.01 \\
---top_p 0.1 \\
+# Inference script for Vision-R1-7B model using transformers
+MODEL_PATH="Vision-R1-7B"   # Replace with your model path
+TEMP=0.6
+TOP_P=0.95
+MAX_TOKENS=4096
+# Loacl image path and prompt
+IMAGE_PATH="./figs/example1.png"
+PROMPT="Given a cone with a base radius represented by the variable 'r' (r = 1) and a slant height represented by the variable 's' (s = 3), determine the lateral surface area using variables.\nChoices:\nA: 2π\nB: 3π\nC: 6π\nD: 8π"
+
+python3 inference.py \
+    --model_path ${MODEL_PATH}  \
+    --enable_flash_attn True \
+    --image_path ${IMAGE_PATH} \
+    --prompt "${PROMPT}" \
+    --max_tokens ${MAX_TOKENS} \
+    --temperature ${TEMP} \
+    --top_p ${TOP_P}
 ```
+
 or modify arguments in `scripts/inference.sh` and run
+
 ```bash
 sh scripts/inference.sh
 ```
+
+Note that we use the same `temperature` and `top_p` as [DeepSeek-R1](https://huggingface.co/deepseek-ai/DeepSeek-R1/blob/main/generation_config.json), you can also try other hyper-parameters.
 
 ### Using vLLM for Deployment and Inference
 
@@ -84,9 +95,19 @@ We highly recommend applying vLLM for deployment and inference. vLLM version sho
 Run the command below to start an OpenAI-compatible API service:
 
 ```bash
-vllm serve model_path --port 8000 --host 0.0.0.0 --dtype bfloat16 --limit-mm-per-prompt image=5
+MODEL_PATH="Vision-R1-7B"   # Replace with your model path
+MODEL_NAME="Vision-R1-7B"
+# deploy
+vllm serve ${MODEL_PATH} \
+    --port 8000 \
+    --host 0.0.0.0 \
+    --dtype bfloat16 \
+    --limit-mm-per-prompt image=5 \
+    --served-model-name "${MODEL_NAME}" \
 ```
+
 or using the bash script below:
+
 ```bash
 sh scripts/vllm_deploy.sh
 ```
@@ -94,16 +115,24 @@ sh scripts/vllm_deploy.sh
 Then, you can use the chat API by running the command below:
 
 ```bash
-python vllm_inference.py \\
---model_path  ""  \\
---image_path "./figs/example1.png" \\
---prompt "Given a cone with a base radius represented by the variable 'r' (r = 1) and a slant height represented by the variable 's' (s = 3), determine the lateral surface area using variables.\nChoices:\nA: 2π\nB: 3π\nC: 6π\nD: 8π" \\
---max_tokens 2048 \\
---temperature 0.01 \\
---top_p 0.1 \\
---timeout 2000 
+MODEL_PATH="Vision-R1"
+TEMP=0.6
+TOP_P=0.95
+MAX_TOKENS=4096
+IMAGE_PATH="./figs/example1.png"
+PROMPT="Given a cone with a base radius represented by the variable 'r' (r = 1) and a slant height represented by the variable 's' (s = 3), determine the lateral surface area using variables.\nChoices:\nA: 2π\nB: 3π\nC: 6π\nD: 8π"
+python3 vllm_inference.py \
+    --model_path ${MODEL_PATH}  \
+    --image_path ${IMAGE_PATH} \
+    --prompt "${PROMPT}" \
+    --max_tokens ${MAX_TOKENS} \
+    --temperature ${TEMP} \
+    --top_p ${TOP_P} \
+    --timeout 2000 
 ```
+
 or using bash script
+
 ```bash
 sh scripts/vllm_inference.sh
 ```
@@ -113,16 +142,23 @@ sh scripts/vllm_inference.sh
 You can also use vLLM to inference locally:
 
 ```bash
-python vllm_inference_local.py \\
---model_path  ""  \\
---image_path "./figs/example1.png" \\
---prompt "Given a cone with a base radius represented by the variable 'r' (r = 1) and a slant height represented by the variable 's' (s = 3), determine the lateral surface area using variables.\nChoices:\nA: 2π\nB: 3π\nC: 6π\nD: 8π" \\
---max_tokens 2048 \\
---temperature 0.01 \\
---top_p 0.1 \\
+MODEL_PATH="Vision-R1"
+TEMP=0.6
+TOP_P=0.95
+MAX_TOKENS=4096
+IMAGE_PATH="./figs/example1.png"
+PROMPT="Given a cone with a base radius represented by the variable 'r' (r = 1) and a slant height represented by the variable 's' (s = 3), determine the lateral surface area using variables.\nChoices:\nA: 2π\nB: 3π\nC: 6π\nD: 8π"
+python3 vllm_inference_local.py \
+    --model_path ${MODEL_PATH}  \
+    --image_path ${IMAGE_PATH} \
+    --prompt "${PROMPT}" \
+    --max_tokens ${MAX_TOKENS} \
+    --temperature ${TEMP} \
+    --top_p ${TOP_P} \
 ```
 
 or using bash script
+
 ```bash
 sh scripts/vllm_inference.sh
 ```

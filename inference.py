@@ -10,8 +10,8 @@ def main():
     parser.add_argument("--image_path", type=str, default="", help="Path to the input image.")
     parser.add_argument("--prompt", type=str, default="", help="The input prompt.")
     parser.add_argument("--max_tokens", type=int, default=128, help="Max tokens of model generation")
-    parser.add_argument("--temperature", type=float, default=0.01, help="temperature")
-    parser.add_argument("--top_p", type=float, default=0.1, help="top_p")
+    parser.add_argument("--temperature", type=float, default=0.6, help="Temperature of generate")
+    parser.add_argument("--top_p", type=float, default=0.95, help="top_p of generate")
     args = parser.parse_args()
 
     if args.enable_flash_attn:
@@ -22,10 +22,12 @@ def main():
         attn_implementation="flash_attention_2",
         device_map="auto",
     )
+        print('Using flash attention!')
     else:
         model = Qwen2_5_VLForConditionalGeneration.from_pretrained(
             args.model_path, torch_dtype="auto", device_map="auto"
         )
+        print('Using default attention!')
 
     # default processor
     processor = AutoProcessor.from_pretrained(args.model_path)
@@ -61,13 +63,11 @@ def main():
     inputs = inputs.to(model.device)
 
     # Inference: Generation of the output
-    generated_ids = model.generate(
-        **inputs, 
-        do_sample=True,
-        max_new_tokens=args.max_tokens,
-        temperature=args.temperature,
-        top_p=args.top_p,
-    )
+    generated_ids = model.generate(**inputs,
+                                    do_sample=True,
+                                    max_new_tokens=args.max_tokens, 
+                                    temperature=args.temperature, 
+                                    top_p=args.top_p)
     generated_ids_trimmed = [
         out_ids[len(in_ids) :] for in_ids, out_ids in zip(inputs.input_ids, generated_ids)
     ]

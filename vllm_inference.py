@@ -10,6 +10,7 @@ def main():
     parser.add_argument("--max_tokens", type=int, default=128, help="Max tokens of model generation")
     parser.add_argument("--temperature", type=float, default=0.01, help="temperature")
     parser.add_argument("--top_p", type=float, default=0.1, help="top_p")
+    parser.add_argument("--timeout", type=int, default=2000, help="timeout")
     args = parser.parse_args()
 
     # Set OpenAI's API key and API base to use vLLM's API server.

@@ -9,9 +9,8 @@ def main():
     parser.add_argument("--image_path", type=str, default="", help="Path to the input image.")
     parser.add_argument("--prompt", type=str, default="", help="The input prompt.")
     parser.add_argument("--max_tokens", type=int, default=128, help="Max tokens of model generation")
-    parser.add_argument("--temperature", type=float, default=0.01, help="temperature")
-    parser.add_argument("--top_p", type=float, default=0.1, help="top_p")
-    parser.add_argument("--timeout", type=int, default=2000, help="timeout")
+    parser.add_argument("--temperature", type=float, default=0.6, help="Temperature of generate")
+    parser.add_argument("--top_p", type=float, default=0.95, help="top_p of generate")
     args = parser.parse_args()
     
 
