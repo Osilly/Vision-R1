@@ -5,8 +5,20 @@ The official repo for "Vision-R1: Incentivizing Reasoning Capability in Multimod
 <p align="center">
        🤗 <a href="">Hugging Face</a>&nbsp&nbsp | &nbsp&nbsp📑 <a href="https://arxiv.org/abs/2503.06749">Paper</a>&nbsp&nbsp
 </p>
+The datasets, code and weights will be released, stay tuned!
 
-The datasets and code will be released, stay tuned!
+## TODO and Timeline
+
+### TODO
+
+- :fire: We will release the **datasets, code and weights**!
+- :fire: We are in the process of training for **72B Vision-R1** and plan to release it when it is completed!
+- :fire: We are trying to scale our training to low-resource settings, where the entire cold start and RL training process can be completed **using only 8 GPUs**.
+
+### Timeline
+
+- [2025/03/11] We released the inference code and scripts.
+- [2025/03/09] Our Vision-R1 paper ([Vision-R1: Incentivizing Reasoning Capability in Multimodal Large Language Models](https://arxiv.org/abs/2503.06749)) can be accessed in arXiv!
 
 ## Our Exploration
 
