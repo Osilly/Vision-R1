@@ -20,6 +20,10 @@ The datasets and code will be released, stay tuned!
 
 ![](figs/reasoning_example.png)
 
+
+
+![](figs/reasoning_example1.png)
+
 > The output examples of Vision-R1-7B on MathVerse benchmark. Vision-R1-7B shows ''human-like'' questioning and self-reflective thought process when solving math reasoning problems, which is also called **''Aha moment''** in DeepSeek-R1's paper.
 
 ## Result
@@ -165,4 +169,5 @@ sh scripts/vllm_inference.sh
 
 ## Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=Osilly/Vision-R1&type=Date)](https://star-history.com/#Osilly/Vision-R1&Date)
+
+[![Star History Chart](https://api.star-history.com/svg?repos=Osilly/Vision-R1&type=Date)](https://www.star-history.com/#Osilly/Vision-R1&Date)
