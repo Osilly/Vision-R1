@@ -80,8 +80,7 @@ Then, refer [here](https://github.com/hiyouga/LLaMA-Factory/blob/main/data/READM
     "formatting": "sharegpt",
     "columns": {
       "messages": "conversations",
-      "images": "image",
-      "system": "system"
+      "images": "image"
     },
     "tags": {
       "role_tag": "from",
@@ -95,8 +94,7 @@ Then, refer [here](https://github.com/hiyouga/LLaMA-Factory/blob/main/data/READM
     "formatting": "sharegpt",
     "columns": {
       "messages": "conversations",
-      "images": "images",
-      "system": "system"
+      "images": "images"
     },
     "tags": {
       "role_tag": "from",
