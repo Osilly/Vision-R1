@@ -128,10 +128,16 @@ The structure of the directory should be:
 
 We use [LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory) to obtain the Vision-R1-CI model and put the training script in `train/cold_start`. You can use `8*4` or `8` GPUs of 80G memory to train it.
 
-You should replace the path of Vision-R1-cold dataset for the `train.yaml`, such as `train/cold_start/vision_r1_full_Qwen2.5-VL-7B-Instruct_sft_epoch2_lr5e6_warm005_8GPU/train.yaml`.
+You should replace the path of Vision-R1-cold dataset for the `train.yaml`, such as [`train/cold_start/vision_r1_full_Qwen2.5-VL-7B-Instruct_sft_epoch2_lr5e6_warm005_32GPU/train.yaml`](https://github.com/Osilly/Vision-R1/blob/main/train/cold_start/vision_r1_full_Qwen2.5-VL-7B-Instruct_sft_epoch2_lr5e6_warm005_32GPU/train.yaml).
 
 ```
 dataset_dir: /path/of/vision_r1_cold ### Replace it!
+```
+
+Then, use the [script](https://github.com/Osilly/Vision-R1/blob/main/train/cold_start/vision_r1_full_Qwen2.5-VL-7B-Instruct_sft_epoch2_lr5e6_warm005_32GPU/deepseed_node.sh) to start the training.
+
+```
+bash train/cold_start/vision_r1_full_Qwen2.5-VL-7B-Instruct_sft_epoch2_lr5e6_warm005_32GPU/deepseed_node.sh
 ```
 
 #### RL Training
