@@ -1,0 +1,1 @@
+DISABLE_VERSION_CHECK=1 FORCE_TORCHRUN=1 NNODES=4 NODE_RANK=$RANK MASTER_ADDR=$MASTER_ADDR MASTER_PORT=29500 llamafactory-cli train train/cold_start/vision_r1_full_Qwen2.5-VL-7B-Instruct_sft_epoch2_lr5e6_warm005_32GPU/train.yaml
