@@ -1,0 +1,34 @@
+eval_backend: VLMEvalKit
+work_dir: outputs
+eval_config:
+  model:
+    - type: internvl2-8b   # model id of the model
+      name: CustomAPIModel # Don't change, must be CustomAPIModel for deploy evaluation
+      api_base: http://localhost:8801/v1/chat/completions # deployed model api
+      key: EMPTY
+      temperature: 0.0
+      img_size: 224
+      img_detail: low
+      video_llm: false
+  data:
+    # - MVBench_MP4
+    # - MLVU
+    # - Video-MME
+    # - MMBench-Video
+    # - custom_vqa
+    # - MMStar
+    # - COCO_VAL
+    # - AI2D_TEST
+    # - POPE
+    # - RealWorldQA
+    # - SEEDBench2_Plus
+    - MME
+  mode: all
+  limit: 2
+  reuse: true
+  nproc: 1
+  judge: exact_matching
+  # judge model server config
+  # OPENAI_API_KEY: EMPTY
+  # OPENAI_API_BASE: http://localhost:11434/v1/chat/completions # judge model api
+  # LOCAL_LLM: llama3.1:latest                              # judge model type

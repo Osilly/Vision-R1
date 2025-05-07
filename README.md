@@ -12,12 +12,13 @@ The datasets, code and weights will be released, stay tuned!
 
 ### TODO
 
-- :fire: We will release the **datasets, code and weights**!
-- :fire: We are in the process of training for **72B Vision-R1** and plan to release it when it is completed!
-- :fire: We are trying to scale our training to low-resource settings, where the entire cold start and RL training process can be completed **using only 8 GPUs**.
+- 🔥 We will release the **datasets, code and weights**!
+- 🔥 We are in the process of training for **72B Vision-R1** and plan to release it when it is completed!
+- 🔥 We are trying to scale our training to low-resource settings, where the entire cold start and RL training process can be completed **using only 8 GPUs**.
 
 ### Timeline
 
+- [2025/05/07] **We released** evalution codes!
 - [2025/04/13] **We released [Vision-R1-7B](https://huggingface.co/Osilly/Vision-R1-7B)**!
 - [2025/03/24] **We released [Cold-start Dataset (Vision-R1-cold)](https://huggingface.co/datasets/Osilly/Vision-R1-cold)**!
 - [2025/03/11] We released the inference code and scripts.
@@ -34,8 +35,6 @@ The datasets, code and weights will be released, stay tuned!
 ## Vision-R1 Reasoning Example
 
 ![](figs/reasoning_example.png)
-
-
 
 ![](figs/reasoning_example1.png)
 
@@ -266,7 +265,10 @@ or using bash script
 sh scripts/vllm_inference.sh
 ```
 
-## Star History
+### Evalution
 
+We provide our evaluation codes under `evaluation/`, see [README.md](./evaluation/README.md) for more details.
+
+## Star History
 
 [![Star History Chart](https://api.star-history.com/svg?repos=Osilly/Vision-R1&type=Date)](https://www.star-history.com/#Osilly/Vision-R1&Date)

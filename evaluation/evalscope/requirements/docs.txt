@@ -1,0 +1,6 @@
+docutils>=0.16.0
+myst_parser
+recommonmark
+sphinx>=5.3.0
+sphinx-design
+sphinxawesome-theme
