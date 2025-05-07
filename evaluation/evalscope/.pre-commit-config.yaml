@@ -1,0 +1,54 @@
+repos:
+  - repo: https://github.com/pycqa/flake8.git
+    rev: 7.1.1
+    hooks:
+      - id: flake8
+        exclude: |
+            (?x)^(
+                examples/|
+                docs/|
+                tests/|
+                evalscope/utils/utils.py|
+                evalscope/third_party/|
+                evalscope/backend/rag_eval/clip_benchmark/tasks|
+                evalscope/backend/rag_eval/cmteb/tasks
+            )
+  - repo: https://github.com/PyCQA/isort.git
+    rev: 5.13.2
+    hooks:
+      - id: isort
+  - repo: https://github.com/pre-commit/mirrors-yapf.git
+    rev: v0.32.0
+    hooks:
+      - id: yapf
+        exclude: |
+            (?x)^(
+                examples/|
+                docs/|
+                tests/|
+                evalscope/utils/utils.py|
+                evalscope/third_party/|
+                evalscope/backend/rag_eval/clip_benchmark/tasks|
+                evalscope/backend/rag_eval/cmteb/tasks
+            )
+  - repo: https://github.com/pre-commit/pre-commit-hooks.git
+    rev: v5.0.0
+    hooks:
+      - id: trailing-whitespace
+        exclude: thirdparty/|docs/
+      - id: check-yaml
+        exclude: thirdparty/
+      - id: end-of-file-fixer
+        exclude: thirdparty/|docs/
+      - id: requirements-txt-fixer
+        exclude: thirdparty/
+      - id: double-quote-string-fixer
+        exclude: thirdparty/
+      - id: check-merge-conflict
+        exclude: thirdparty/
+      - id: fix-encoding-pragma
+        exclude: thirdparty/
+        args: ["--remove"]
+      - id: mixed-line-ending
+        exclude: thirdparty/
+        args: ["--fix=lf"]
