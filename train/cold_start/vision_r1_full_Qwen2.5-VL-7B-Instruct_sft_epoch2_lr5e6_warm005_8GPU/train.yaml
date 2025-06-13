@@ -5,15 +5,12 @@ model_name_or_path: Qwen/Qwen2.5-VL-7B-Instruct
 stage: sft
 do_train: true
 finetuning_type: full
-# deepspeed: examples/deepspeed/ds_z3_offload_config.json
 deepspeed: train/cold_start/examples/deepspeed/ds_z3_config.json
 
 ### dataset
 dataset: vision_r1_llava_cot_full, vision_r1_mulberry_sft_full
-# dataset: bespoke_cot
 dataset_dir: /path/of/vision_r1_cold
 template: qwen2_vl
-# cutoff_len: 32768
 cutoff_len: 16384
 overwrite_cache: true
 preprocessing_num_workers: 128

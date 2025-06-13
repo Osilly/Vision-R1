@@ -8,6 +8,21 @@ The official repo for "Vision-R1: Incentivizing Reasoning Capability in Multimod
 
 The datasets, code and weights will be released, stay tuned!
 
+## Highlight
+
+---
+
+🔥🔥🔥 **Awesome Interleaving Reasoning**  
+<p align="center">
+    <img src="./figs/interleaving_reasoning.png" width="80%" height="80%">
+</p>
+
+<font size=7><div align='center' > [[🌟 GitHub](https://github.com/Osilly/Awesome-Interleaving-Reasoning)![Star](https://img.shields.io/github/stars/Osilly/Awesome-Interleaving-Reasoning.svg?style=social&label=Star)] </div></font>  
+
+<font size=7><div align='center' > Recently, the introduction of [OpenAI o3](https://openai.com/index/introducing-o3-and-o4-mini/), [Deep research](https://openai.com/index/introducing-deep-research/), [Zochi](https://github.com/IntologyAI/Zochi/blob/main/Zochi_Technical_Report.pdf), and [BAGEL](https://arxiv.org/abs/2505.14683) has established an alternative reasoning formulation, which we designate as **Interleaving Reasoning**. In contrast to standard reasoning, Interleaving Reasoning is characterized by multi-turn interactions and exhibits sophisticated reasoning dynamics. This reasoning modality has empirically demonstrated superior accuracy in addressing complex problems. Consequently, we posit that Interleaving Reasoning potentially constitutes the **Next-Generation Reasoning Systems for AGI**.  </div></font>
+
+---
+
 ## TODO and Timeline
 
 ### TODO
