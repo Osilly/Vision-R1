@@ -3,7 +3,11 @@
 The official repo for "Vision-R1: Incentivizing Reasoning Capability in Multimodal Large Language Models".
 
 <p align="center">
-       🤗 <a href="https://huggingface.co/datasets/Osilly/Vision-R1-cold">Cold-start Dataset (Vision-R1-cold)</a>&nbsp&nbsp | &nbsp&nbsp🤗 <a href="https://huggingface.co/Osilly/Vision-R1-7B">Vision-R1-7B</a>&nbsp&nbsp | &nbsp&nbsp📑 <a href="https://arxiv.org/abs/2503.06749">Paper</a>&nbsp&nbsp
+       🤗 <a href="https://huggingface.co/datasets/Osilly/Vision-R1-cold">Cold-start Dataset (Vision-R1-cold)</a>&nbsp&nbsp | &nbsp&nbsp🤗 <a href="https://huggingface.co/datasets/Osilly/Vision-R1-rl">RL Dataset (Vision-R1-rl)</a>&nbsp&nbsp
+</p>
+
+<p align="center">
+       🤗 <a href="https://huggingface.co/Osilly/Vision-R1-CI-7B">Vision-R1-CI-7B</a>&nbsp&nbsp | &nbsp&nbsp🤗 <a href="https://huggingface.co/Osilly/Vision-R1-7B">Vision-R1-7B</a>&nbsp&nbsp | &nbsp&nbsp🤗 <a href="https://huggingface.co/Osilly/Vision-R1-72B">Vision-R1-72B</a>&nbsp&nbsp | &nbsp&nbsp📑 <a href="https://arxiv.org/abs/2503.06749">Paper</a>&nbsp&nbsp
 </p>
 
 The datasets, code and weights will be released, stay tuned!
@@ -33,7 +37,8 @@ The datasets, code and weights will be released, stay tuned!
 
 ### Timeline
 
-- [2025/05/07] **We released** evalution codes!
+- [2025/06/26] **We released [RL Dataset (Vision-R1-rl)](https://huggingface.co/datasets/Osilly/Vision-R1-rl), [Vision-R1-CI-7B](https://huggingface.co/Osilly/Vision-R1-CI-7B), [Vision-R1-72B](https://huggingface.co/Osilly/Vision-R1-CI-7B)** !
+- [2025/05/07] We released evalution codes!
 - [2025/04/13] **We released [Vision-R1-7B](https://huggingface.co/Osilly/Vision-R1-7B)**!
 - [2025/03/24] **We released [Cold-start Dataset (Vision-R1-cold)](https://huggingface.co/datasets/Osilly/Vision-R1-cold)**!
 - [2025/03/11] We released the inference code and scripts.
@@ -155,7 +160,7 @@ bash train/cold_start/vision_r1_full_Qwen2.5-VL-7B-Instruct_sft_epoch2_lr5e6_war
 
 #### RL Training
 
-Coming soon...
+The [RL Dataset (Vision-R1-rl)](https://huggingface.co/datasets/Osilly/Vision-R1-rl) uses the [geometry3k](https://huggingface.co/datasets/hiyouga/geometry3k) formation , while you can use [EasyR1](https://github.com/hiyouga/EasyR1) or [verl](https://github.com/volcengine/verl) to finish the training.
 
 ### Inference
 
