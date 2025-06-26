@@ -49,7 +49,7 @@ The datasets, code and weights will be released, stay tuned!
 
 ### Timeline
 
-- [2025/06/26] **We released [RL Dataset (Vision-R1-rl)](https://huggingface.co/datasets/Osilly/Vision-R1-rl), [Vision-R1-CI-7B](https://huggingface.co/Osilly/Vision-R1-CI-7B), [Vision-R1-32B](https://huggingface.co/Osilly/Vision-R1-32B, [Vision-R1-72B](https://huggingface.co/Osilly/Vision-R1-72B)** !
+- [2025/06/26] **We released [RL Dataset (Vision-R1-rl)](https://huggingface.co/datasets/Osilly/Vision-R1-rl), [Vision-R1-CI-7B](https://huggingface.co/Osilly/Vision-R1-CI-7B), [Vision-R1-32B](https://huggingface.co/Osilly/Vision-R1-32B), [Vision-R1-72B](https://huggingface.co/Osilly/Vision-R1-72B)** !
 - [2025/05/07] We released evalution codes!
 - [2025/04/13] **We released [Vision-R1-7B](https://huggingface.co/Osilly/Vision-R1-7B)**!
 - [2025/03/24] **We released [Cold-start Dataset (Vision-R1-cold)](https://huggingface.co/datasets/Osilly/Vision-R1-cold)**!
