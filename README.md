@@ -9,8 +9,18 @@ The official repo for "Vision-R1: Incentivizing Reasoning Capability in Multimod
 <p align="center">
        🤗 <a href="https://huggingface.co/Osilly/Vision-R1-CI-7B">Vision-R1-CI-7B</a>&nbsp&nbsp | &nbsp&nbsp🤗 <a href="https://huggingface.co/Osilly/Vision-R1-7B">Vision-R1-7B</a>&nbsp&nbsp | &nbsp&nbsp🤗 <a href="https://huggingface.co/Osilly/Vision-R1-72B">Vision-R1-72B</a>&nbsp&nbsp | &nbsp&nbsp📑 <a href="https://arxiv.org/abs/2503.06749">Paper</a>&nbsp&nbsp
 </p>
-
 The datasets, code and weights will be released, stay tuned!
+
+## Performance
+
+| Model                    | MathVista   | MathVerse    | MathVerse (mini Vision_Only) | MM-Math      | DynaMath (Overall; Avg) | AVG.         |
+| ------------------------ | ----------- | ------------ | ---------------------------- | ------------ | ----------------------- | ------------ |
+| Qwen2.5-VL-7B            | 68.1        | 46.7         | 40.2                         | 34.1         | 50.7                    | 47.9         |
+| Qwen2.5-VL-32B           | 72.9        | 52.3         | 47.6                         | 34.9         | 55.5                    | 52.6         |
+| Qwen2.5-VL-72B           | 73.5        | 51.3         | 47.3                         | 45.6         | 61.2                    | 55.8         |
+| **Vision-R1-7B (Ours)**  | 73.5 (+5.4) | 52.4 (+5.7)  | 46.7 (+6.7)                  | 40.2 (+6.1)  | 56.3 (+5.6)             | 53.8 (+5.9)  |
+| **Vision-R1-32B (Ours)** | 76.4 (+2.9) | 62.1 (+9.8)  | 59.0 (+11.4)                 | 55.3 (+20.4) | 65.6 (+10.1)            | 63.7 (+11.1) |
+| **Vision-R1-72B (Ours)** | 78.2 (+4.7) | 63.2 (+11.9) | 57.9 (+10.6)                 | 59.3 (+13.7) | 66.4 (+5.2)             | 65 (+9.2)    |
 
 ## Highlight
 
