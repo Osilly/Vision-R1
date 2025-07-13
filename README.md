@@ -30,7 +30,7 @@ The datasets, code and weights will be released, stay tuned!
 
 🔥🔥🔥 **Awesome Interleaving Reasoning**  
 <p align="center">
-    <img src="./figs/interleaving_reasoning.png" width="80%" height="80%">
+    <img src="./figs/interleaving_reasoning.png" width="80%">
 </p>
 
 <font size=7><div align='center' > [[🌟 GitHub](https://github.com/Osilly/Awesome-Interleaving-Reasoning)![Star](https://img.shields.io/github/stars/Osilly/Awesome-Interleaving-Reasoning.svg?style=social&label=Star)] </div></font>  
